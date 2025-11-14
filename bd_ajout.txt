@@ -1,0 +1,169 @@
+- INSERTION DES DONNÉES DE TEST
+-- ============================================
+
+-- Insertion des utilisateurs
+INSERT INTO users (lastName, firstName, email, password_hash, displayName, birthday, gender, phoneNumber, sector, onboarding_completed, total_points) VALUES
+('Dupont', 'Marie', 'marie.dupont@example.com', '$2b$12$KIXxLQv8ZJh5Y8mKHF8W0eqYvZqX5vNJ3xN9X5vZqX5vNJ3xN9X5v', 'MarieDu', '1990-05-15', 'female', '+33612345678', 'Marketing', TRUE, 150),
+('Martin', 'Pierre', 'pierre.martin@example.com', '$2b$12$KIXxLQv8ZJh5Y8mKHF8W0eqYvZqX5vNJ3xN9X5vZqX5vNJ3xN9X5v', 'PierreM', '1988-08-22', 'male', '+33623456789', 'IT', TRUE, 230),
+('Bernard', 'Sophie', 'sophie.bernard@example.com', '$2b$12$KIXxLQv8ZJh5Y8mKHF8W0eqYvZqX5vNJ3xN9X5vZqX5vNJ3xN9X5v', 'SophieB', '1995-03-10', 'female', '+33634567890', 'Finance', TRUE, 180),
+('Petit', 'Lucas', 'lucas.petit@example.com', '$2b$12$KIXxLQv8ZJh5Y8mKHF8W0eqYvZqX5vNJ3xN9X5vZqX5vNJ3xN9X5v', 'LucasP', '1992-11-30', 'male', '+33645678901', 'HR', FALSE, 0),
+('Dubois', 'Emma', 'emma.dubois@example.com', '$2b$12$KIXxLQv8ZJh5Y8mKHF8W0eqYvZqX5vNJ3xN9X5vZqX5vNJ3xN9X5v', 'EmmaD', '1993-07-18', 'female', '+33656789012', 'Operations', TRUE, 90),
+('Moreau', 'Thomas', 'thomas.moreau@example.com', '$2b$12$KIXxLQv8ZJh5Y8mKHF8W0eqYvZqX5vNJ3xN9X5vZqX5vNJ3xN9X5v', 'ThomasM', '1991-02-25', 'male', '+33667890123', 'Sales', TRUE, 120),
+('Laurent', 'Chloé', 'chloe.laurent@example.com', '$2b$12$KIXxLQv8ZJh5Y8mKHF8W0eqYvZqX5vNJ3xN9X5vZqX5vNJ3xN9X5v', 'ChloeL', '1994-09-05', 'female', '+33678901234', 'Design', TRUE, 200),
+('Simon', 'Alexandre', 'alexandre.simon@example.com', '$2b$12$KIXxLQv8ZJh5Y8mKHF8W0eqYvZqX5vNJ3xN9X5vZqX5vNJ3xN9X5v', 'AlexS', '1989-12-14', 'male', '+33689012345', 'IT', FALSE, 0);
+
+-- Insertion des challenges
+INSERT INTO challenges (title, description, date, points) VALUES
+('Bienvenue dans l\'équipe', 'Complétez votre profil et explorez la plateforme', '2025-11-01', 20),
+('Premier pas santé', 'Marchez 10 000 pas aujourd\'hui', '2025-11-05', 15),
+('Pause méditation', 'Prenez 10 minutes pour méditer', '2025-11-08', 10),
+('Déjeuner équilibré', 'Partagez une photo de votre déjeuner sain', '2025-11-10', 15),
+('Défi hydratation', 'Buvez 2 litres d\'eau aujourd\'hui', '2025-11-12', 10),
+('Session sport', 'Faites 30 minutes d\'exercice physique', '2025-11-14', 25),
+('Sommeil réparateur', 'Dormez au moins 8 heures', '2025-11-15', 15),
+('Reconnaissance', 'Remerciez un collègue pour son aide', '2025-11-16', 10),
+('Apprentissage', 'Lisez un article sur le bien-être', '2025-11-18', 15),
+('Défi créatif', 'Proposez une idée d\'amélioration pour l\'entreprise', '2025-11-20', 30);
+
+-- Insertion des user_challenges (défis attribués aux utilisateurs)
+INSERT INTO user_challenges (user_id, challenge_id, is_completed, completed_at) VALUES
+-- Marie (user 1) - 150 points
+(1, 1, TRUE, '2025-11-01 10:30:00'),
+(1, 2, TRUE, '2025-11-05 18:45:00'),
+(1, 3, TRUE, '2025-11-08 12:15:00'),
+(1, 4, TRUE, '2025-11-10 13:20:00'),
+(1, 5, TRUE, '2025-11-12 16:00:00'),
+(1, 6, TRUE, '2025-11-14 19:30:00'),
+(1, 7, FALSE, NULL),
+(1, 8, TRUE, '2025-11-16 09:00:00'),
+
+-- Pierre (user 2) - 230 points
+(2, 1, TRUE, '2025-11-01 09:00:00'),
+(2, 2, TRUE, '2025-11-05 20:00:00'),
+(2, 3, TRUE, '2025-11-08 08:00:00'),
+(2, 4, TRUE, '2025-11-10 12:30:00'),
+(2, 5, TRUE, '2025-11-12 15:45:00'),
+(2, 6, TRUE, '2025-11-14 18:00:00'),
+(2, 7, TRUE, '2025-11-15 07:30:00'),
+(2, 8, TRUE, '2025-11-16 10:15:00'),
+(2, 9, TRUE, '2025-11-18 14:00:00'),
+(2, 10, TRUE, '2025-11-20 16:30:00'),
+
+-- Sophie (user 3) - 180 points
+(3, 1, TRUE, '2025-11-01 11:00:00'),
+(3, 2, TRUE, '2025-11-05 19:15:00'),
+(3, 3, TRUE, '2025-11-08 13:00:00'),
+(3, 4, TRUE, '2025-11-10 12:00:00'),
+(3, 5, TRUE, '2025-11-12 17:30:00'),
+(3, 6, TRUE, '2025-11-14 18:45:00'),
+(3, 7, TRUE, '2025-11-15 08:00:00'),
+(3, 8, TRUE, '2025-11-16 11:00:00'),
+(3, 9, TRUE, '2025-11-18 15:30:00'),
+
+-- Lucas (user 4) - 0 points (nouveau, pas encore actif)
+(4, 1, FALSE, NULL),
+(4, 2, FALSE, NULL),
+
+-- Emma (user 5) - 90 points
+(5, 1, TRUE, '2025-11-01 14:00:00'),
+(5, 2, TRUE, '2025-11-05 17:00:00'),
+(5, 3, TRUE, '2025-11-08 11:30:00'),
+(5, 4, TRUE, '2025-11-10 13:00:00'),
+(5, 5, TRUE, '2025-11-12 16:30:00'),
+(5, 6, FALSE, NULL),
+
+-- Thomas (user 6) - 120 points
+(6, 1, TRUE, '2025-11-01 10:00:00'),
+(6, 2, TRUE, '2025-11-05 19:00:00'),
+(6, 3, TRUE, '2025-11-08 12:00:00'),
+(6, 4, TRUE, '2025-11-10 13:30:00'),
+(6, 5, TRUE, '2025-11-12 15:00:00'),
+(6, 6, TRUE, '2025-11-14 20:00:00'),
+(6, 7, FALSE, NULL),
+(6, 8, TRUE, '2025-11-16 10:00:00'),
+
+-- Chloé (user 7) - 200 points
+(7, 1, TRUE, '2025-11-01 09:30:00'),
+(7, 2, TRUE, '2025-11-05 18:00:00'),
+(7, 3, TRUE, '2025-11-08 10:00:00'),
+(7, 4, TRUE, '2025-11-10 12:45:00'),
+(7, 5, TRUE, '2025-11-12 16:15:00'),
+(7, 6, TRUE, '2025-11-14 19:00:00'),
+(7, 7, TRUE, '2025-11-15 07:45:00'),
+(7, 8, TRUE, '2025-11-16 09:30:00'),
+(7, 9, TRUE, '2025-11-18 14:30:00'),
+(7, 10, TRUE, '2025-11-20 17:00:00'),
+
+-- Alexandre (user 8) - 0 points (nouveau)
+(8, 1, FALSE, NULL);
+
+-- Insertion des discussions
+INSERT INTO discussions (id,title, description, user_id) VALUES
+(1,'Conseils pour mieux dormir', 'Quels sont vos meilleurs conseils pour améliorer la qualité de son sommeil ? Je dors mal depuis quelques semaines.', 1),
+(2,'Recettes healthy pour le midi', 'Partageons nos meilleures recettes rapides et saines pour les déjeuners au bureau !', 3),
+(3,'Sport après le travail', 'Qui est motivé pour créer un groupe de running après le boulot ? On pourrait se retrouver 2 fois par semaine.', 2),
+(4,'Gestion du stress au travail', 'Comment gérez-vous votre stress pendant les périodes intenses ? J\'aimerais avoir vos techniques.', 5),
+(5,'Application de méditation', 'Quelqu\'un utilise des apps de méditation ? Laquelle recommandez-vous pour débuter ?', 7);
+
+-- Insertion des commentaires
+INSERT INTO comments (discussion_id, user_id, message) VALUES
+-- Discussion 1 (Sommeil)
+(1, 2, 'J\'ai commencé à couper les écrans 1h avant de dormir, ça aide vraiment ! Aussi, je lis un peu avant de me coucher.'),
+(1, 3, 'Essaye la tisane à la camomille et la lavande. Perso, ça m\'a changé la vie. Et une température fraîche dans la chambre, environ 18°C.'),
+(1, 6, 'Le plus important pour moi : se coucher et se lever à heures fixes, même le weekend. Difficile au début mais efficace !'),
+
+-- Discussion 2 (Recettes)
+(2, 1, 'Ma recette préférée : salade de quinoa avec légumes rôtis, feta et vinaigrette au citron. Préparation 15min le dimanche pour toute la semaine !'),
+(2, 7, 'Bowl de riz complet, poulet grillé, avocat et légumes croquants. Simple, rapide et ça cale bien jusqu\'au soir.'),
+(2, 5, 'Les wraps sont tops aussi ! Tu peux varier les garnitures. Mes préférés : thon-avocat ou poulet-crudités-houmous.'),
+
+-- Discussion 3 (Sport)
+(3, 6, 'Excellente idée ! Je suis partant pour le mardi et jeudi soir. On pourrait partir du bureau vers 18h30 ?'),
+(3, 1, 'Super initiative Pierre ! Comptez sur moi aussi. Quel niveau vous visez ? Débutant friendly ?'),
+(3, 7, 'Intéressée également ! J\'aimerais reprendre une activité régulière. On fait un groupe WhatsApp pour s\'organiser ?'),
+
+-- Discussion 4 (Stress)
+(4, 3, 'La respiration profonde m\'aide beaucoup. Quelques minutes de cohérence cardiaque dans la journée et c\'est magique.'),
+(4, 2, 'Je fais des micro-pauses toutes les heures. Je me lève, je marche un peu, je regarde par la fenêtre. Ça me permet de déconnecter.'),
+(4, 6, 'Le sport est mon meilleur anti-stress. Une bonne séance et je vois les choses différemment. Aussi, j\'évite la caféine après 15h.'),
+
+-- Discussion 5 (Méditation)
+(5, 1, 'J\'utilise Petit Bambou depuis 6 mois, c\'est très bien pour débuter ! Les séances sont guidées et progressives.'),
+(5, 3, 'Headspace est top aussi. J\'aime bien l\'interface et les programmes thématiques (sommeil, stress, focus...).'),
+(5, 2, 'Pour ma part, j\'utilise Insight Timer. Gratuite et avec une énorme bibliothèque de méditations guidées.');
+
+-- Insertion des messages du chatbot
+INSERT INTO chat_messages (user_id, author, content) VALUES
+-- Conversation de Marie
+(1, 'user', 'Bonjour ! J\'ai des difficultés à maintenir ma motivation pour faire du sport.'),
+(1, 'bot', 'Bonjour Marie ! C\'est un défi courant. Quelques conseils : fixez-vous des objectifs réalistes, trouvez une activité qui vous plaît vraiment, et pourquoi pas rejoindre un groupe comme celui proposé par Pierre sur le forum ? Le soutien collectif aide beaucoup !'),
+(1, 'user', 'C\'est une bonne idée ! Et pour l\'alimentation ?'),
+(1, 'bot', 'Pour l\'alimentation, la régularité est clé. Jetez un œil à la discussion sur les recettes healthy, vous y trouverez de bonnes idées. L\'important est de trouver un équilibre qui vous convient sans être trop restrictif.'),
+
+-- Conversation de Pierre
+(2, 'user', 'Comment puis-je améliorer mon sommeil ? Je dors seulement 6h par nuit.'),
+(2, 'bot', 'Pierre, 6h c\'est insuffisant pour une récupération optimale. Essayez de viser 7-8h. Quelques astuces : routine régulière, pas d\'écrans 1h avant, température fraîche (18°C), et peut-être une tisane relaxante. La discussion sur le sommeil contient d\'excellents conseils !'),
+
+-- Conversation de Sophie
+(3, 'user', 'Quels sont les bienfaits de la méditation ?'),
+(3, 'bot', 'Excellente question Sophie ! La méditation aide à réduire le stress, améliore la concentration, favorise un meilleur sommeil et contribue au bien-être général. Même 10 minutes par jour peuvent faire une différence. Consultez la discussion sur les applications de méditation pour commencer !'),
+
+-- Conversation de Lucas (nouveau)
+(4, 'user', 'Je viens d\'arriver, comment ça fonctionne ici ?'),
+(4, 'bot', 'Bienvenue Lucas ! Cette plateforme vous permet de participer à des challenges bien-être, échanger avec vos collègues sur le forum, et suivre votre progression. Commencez par compléter votre profil, puis relevez votre premier challenge ! Vous gagnerez des points et découvrirez la communauté.'),
+
+-- Conversation d'Emma
+(5, 'user', 'J\'ai du mal à gérer mon stress au travail en ce moment.'),
+(5, 'bot', 'Emma, le stress au travail est un sujet important. La discussion sur la gestion du stress contient des techniques partagées par vos collègues. Pensez aussi aux micro-pauses, à la respiration profonde, et n\'hésitez pas à en parler avec votre manager ou les RH si nécessaire.'),
+
+-- Conversation de Thomas
+(6, 'user', 'Combien de points j\'ai actuellement ?'),
+(6, 'bot', 'Thomas, vous avez actuellement 120 points ! Vous avez complété 7 challenges. Continuez comme ça ! Le prochain challenge disponible pourrait vous faire gagner 15 points supplémentaires.'),
+
+-- Conversation de Chloé
+(7, 'user', 'Quels sont les meilleurs exercices pour le bureau ?'),
+(7, 'bot', 'Chloé, pour le bureau je recommande : étirements du cou et des épaules toutes les heures, rotations des poignets, lever-assis de la chaise (squats), et marche pendant les appels. Ces micro-exercices préviennent les tensions et maintiennent l\'énergie !'),
+
+-- Conversation d'Alexandre (nouveau)
+(8, 'user', 'C\'est quoi le principe des challenges ?'),
+(8, 'bot', 'Bienvenue Alexandre ! Les challenges sont des activités bien-être quotidiennes qui vous permettent de gagner des points. Chaque challenge accompli améliore votre santé et vous fait progresser dans le classement. C\'est ludique et motivant ! Commencez par le challenge "Bienvenue dans l\'équipe" pour débuter.');
