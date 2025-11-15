@@ -77,6 +77,10 @@ Une fois le serveur démarré, la documentation interactive est disponible sur :
 
 ## Endpoints principaux
 
+### variable .env
+-dans app creer un .env et ajoute :
+   BACKEND_URL = ... ton url mysql ex : mysql+pymysql://user:mdp@ip:port/bd
+   SECRET_KEY = ... le secret key pour jwt
 ### Authentification (`/users`)
 
 - `POST /users/register` - Créer un nouveau compte

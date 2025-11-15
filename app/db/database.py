@@ -9,8 +9,8 @@ load_dotenv()
 
 
 try:
-    DATABASE_URL = 'test'
-    # DATABASE_URL = "postgresql://postgres:12345678@localhost:5432/threedwear"
+    DATABASE_URL = os.getenv("DATABASE_URL")
+    print(DATABASE_URL)
 
     if not DATABASE_URL:
         raise ValueError("DATABASE_URL is not set in environment variables.")
@@ -18,7 +18,7 @@ except Exception as e:
     raise RuntimeError("Failed to load database configuration value is",DATABASE_URL) from e
 
 # Création du moteur SQLAlchemy
-engine = create_engine('mysql+pymysql://mit:123456@localhost:3306/eaina')
+engine = create_engine(DATABASE_URL)
 
 # Session locale pour les transactions
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
